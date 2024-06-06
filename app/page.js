@@ -1,88 +1,31 @@
+import Link from "next/link";
 import Image from "next/image";
-import styles from "./page.module.css";
+import gmail from "@/assets/gmail.png";
+import facebook from "@/assets/facebook-logo.png";
+import twitter from "@/assets/twitter.png";
+import logo from "@/assets/Logo.png";
 
-export default function Home() {
+export default function Authentication() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <h1>Whats for Dinner?</h1>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main>
+      <section id="auth-card">
+        <h1>What's For Dinner?</h1>
+        <p>Sign in to find out...</p>
+        <Link href="https://www.google.com/">
+          <Image src={gmail} width={50} alt="gmail icon" />
+        </Link>
+        <Link href="https://www.facebook.com/">
+          <Image src={facebook} width={50} alt="facebook icon" />
+        </Link>
+        <Link href="https://www.google.com/">
+          <Image src={twitter} width={50} alt="twitter icon" />
+        </Link>
+      </section>
+      <section id="logo">
+        <Image src={logo} width={500} alt="logo" />
+      </section>
     </main>
+    // Authentication Box
+    // Logo
   );
 }
