@@ -1,5 +1,7 @@
 import "./globals.css";
 
+//the icon is pretty shitty. Maybe we can find a way to fix it later
+
 export const metadata = {
   title: "What's For Dinner App",
   description:

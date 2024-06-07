@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,3 +17,40 @@ body {
   background-size: 70px 70px;
   background-image: linear-gradient(90deg, #80808033 1px, transparent 0), linear-gradient(180deg, #80808033 1px, transparent 0);
 }
+
+h1 {
+  font-size: 4rem;
+  padding: 10px;
+}
+
+p {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.59%;
+}
+
+.slink {
+  padding: 10px 10px;
+}
+
+#auth-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  height: 400px;
+  width: 550px;
+  border: 2px solid black;
+  border-radius: 10%;
+}
+
+/* Fix the size of the logo image */
+/* #logo {
+} */
