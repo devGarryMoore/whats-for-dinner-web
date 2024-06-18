@@ -1,5 +1,14 @@
-import { ClerkProvider } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignIn,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import "./globals.css";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
+import { neobrutalism } from "@clerk/themes";
 
 //the icon is pretty shitty. Maybe we can find a way to fix it later
 
@@ -11,9 +20,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [neobrutalism],
+      }}
+    >
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <SignedOut>
+            <div className="container">
+              <SignIn routing="hash" id="auth-card" />
+              <section id="logo">
+                {/* Fix the size of the logo image */}
+                <Image src={logo} width={700} alt="logo" id="logo" />
+              </section>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            <UserButton showName />
+            {children}
+          </SignedIn>
+        </body>
       </html>
     </ClerkProvider>
   );
