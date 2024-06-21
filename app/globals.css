@@ -39,7 +39,7 @@ p {
   padding: 10px 10px;
 }
 
-#auth-card {
+.search-box {
   display: flex;
   justify-content: center;
   align-items: center;
