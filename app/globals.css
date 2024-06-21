@@ -41,15 +41,28 @@ p {
 
 .search-box {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   background-color: #fff;
-  height: 400px;
-  width: 550px;
   border: 2px solid black;
-  border-radius: 10%;
-  font-size: 2em;
+  box-shadow: 4px 4px 0px 0px black;
+  border-radius: 10px;
+  padding: 50px;
+  font-size: 1.25em;
+}
+
+.search-box form>*{
+  display: block;
+  margin: 10px;
+}
+
+.search-box form>input{
+  box-shadow: 1px 1px 0px 0px black;
+  width: 90%;
+  padding: 10px;
+}
+
+.loc-link a{
+  padding-left: 8px;
 }
 
 /* Fix the size of the logo image */
@@ -58,5 +71,3 @@ p {
 .cl-headerTitle{
   font-size: 2em;
 }
-
-/* 🔒️ cl-internal-1tpvhd8" */
