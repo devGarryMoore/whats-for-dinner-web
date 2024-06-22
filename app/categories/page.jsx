@@ -13,56 +13,53 @@ export default function Categories() {
     <div>
       <h1 className="heading">Pick a category</h1>
       <section className="container">
-        <div className="card-row">
+        <div className="cards">
           <a href="/results">
-            <div className="cards">
-              <Image src={hamburger} width={100} alt="hamburger" />
-              <h2>Burgers</h2>
-            </div>
-          </a>
-          <a href="/results">
-            <div className="cards">
-              <Image src={chicken} width={100} alt="chicken" />
-              <h2>Chicken</h2>
-            </div>
-          </a>
-          <a href="/results">
-            <div className="cards">
-              <Image src={pizza} width={100} alt="pizza" />
-              <h2>Pizza</h2>
-            </div>
-          </a>
-          <a href="/results">
-            <div className="cards">
-              <Image src={chinese} width={100} alt="chinese" />
-              <h2>Chinese</h2>
-            </div>
+            <Image src={hamburger} width={100} alt="hamburger" />
+            <h2>Burgers</h2>
           </a>
         </div>
-        <div className="card-row">
+        <div className="cards">
           <a href="/results">
-            <div className="cards">
-              <Image src={pub} width={100} alt="pubs" />
-              <h2>Pubs</h2>
-            </div>
+            <Image src={chicken} width={100} alt="chicken" />
+            <h2>Chicken</h2>
           </a>
+        </div>
+        <div className="cards">
           <a href="/results">
-            <div className="cards">
-              <Image src={sushi} width={100} alt="sushi" />
-              <h2>Sushi</h2>
-            </div>
+            <Image src={pizza} width={100} alt="pizza" />
+            <h2>Pizza</h2>
           </a>
+        </div>
+        <div className="cards">
           <a href="/results">
-            <div className="cards">
-              <Image src={korean} width={100} alt="korean" />
-              <h2>Korean</h2>
-            </div>
+            <Image src={chinese} width={100} alt="chinese" />
+            <h2>Chinese</h2>
           </a>
+        </div>
+        <div className="cards">
           <a href="/results">
-            <div className="cards">
-              <Image src={random} width={100} alt="random" />
-              <h2>Random</h2>
-            </div>
+            <Image src={pub} width={100} alt="pubs" />
+            <h2>Pubs</h2>
+          </a>
+        </div>
+        <div className="cards">
+          <a href="/results">
+            <Image src={sushi} width={100} alt="sushi" />
+            <h2>Sushi</h2>
+          </a>{" "}
+        </div>
+        <div className="cards">
+          {" "}
+          <a href="/results">
+            <Image src={korean} width={100} alt="korean" />
+            <h2>Korean</h2>
+          </a>{" "}
+        </div>
+        <div className="cards">
+          <a href="/results">
+            <Image src={random} width={100} alt="random" />
+            <h2>Random</h2>
           </a>
         </div>
       </section>

@@ -30,6 +30,8 @@ p {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 7.59%;
@@ -75,34 +77,26 @@ p {
 
 /* Cards Styling */
 
+/* .card-row{
+
+} */
+
 .cards{
-  display: flex;
-  flex-direction: column;
+  /* flex: 4 21%; */
   text-align: center;
   background-color: #fff;
   border: 2px solid #000;
   box-shadow: 4px 4px 0px 0px #000;
   border-radius: 10px;
   padding: 10px;
+  min-width: 20%;
+  margin: 10px 20px;
+  /* flex-basis: 25%; */
 }
 
 .cards>*{
   padding: 5px;
 }
-
-.card-row{
-  /* display: grid;
-  grid-auto-flow: column;
-  column-gap: 66px; */
-  display: flex;
-  column-gap: 66px;
-  /* display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(4, 25%);
-  justify-content: center; */
-}
-
-.card-row:nth-of-type()
 
 /* Clerk Provider Style Alterations */
 .cl-headerTitle{
