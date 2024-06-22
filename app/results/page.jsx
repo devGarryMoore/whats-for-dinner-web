@@ -21,8 +21,8 @@ export default function ResultsPage() {
           </div>
 
           <div>
-            <button className="btn transition-all">Try Again</button>
-            <button className="btn transition-all">Directions</button>
+            <button className="btn">Try Again</button>
+            <button className="btn">Directions</button>
           </div>
         </div>
       </div>
