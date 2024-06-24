@@ -37,7 +37,27 @@ p {
   color: #fff;
 }
 
+.btn2{
+  background-color: #89cff0;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px 0px black;
+  font-size: 1.25rem;
+  height: 50px;
+  min-width: 300px;
+  margin: 10px;
+  color: #fff;
+}
+
 .btn:active{
+  box-shadow: none;
+  transform: translate(4px, 4px);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: .25s;
+}
+
+.btn2:active{
   box-shadow: none;
   transform: translate(4px, 4px);
   transition-property: all;
