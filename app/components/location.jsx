@@ -1,9 +1,14 @@
 "use client";
 import Image from "next/image";
 import map from "@/assets/map.png";
+import { useState } from "react";
 
 export default function Location() {
   const heading = "What's For Dinner";
+
+  //saving the location in state
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
   // Function to fetch the current location
   const fetchCurrentLocation = () => {
@@ -16,13 +21,8 @@ export default function Location() {
 
   // Success callback
   const showPosition = (position) => {
-    alert(
-      "Latitude: " +
-        position.coords.latitude +
-        "\nLongitude: " +
-        position.coords.longitude
-    );
-    // You can also set these values in state to use them in your component
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
   };
 
   // Error callback
@@ -52,6 +52,8 @@ export default function Location() {
           Use Current Location &nbsp;
           <Image src={map} width={24} alt="map icon" />
         </button>
+        <p>Latitude is: {latitude}</p>
+        <p>Longitude is: {longitude}</p>
       </div>
     </div>
   );
