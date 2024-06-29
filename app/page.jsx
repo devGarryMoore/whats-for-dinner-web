@@ -1,11 +1,31 @@
+"use client";
+
 import Categories from "./components/categories";
 import Location from "./components/location";
+import React, { useState } from "react";
 
 export default function HomePage() {
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [location, setLocation] = useState(false);
+
+  const handleLocationUpdate = (latitude, longitude) => {
+    setLatitude(latitude);
+    setLongitude(longitude);
+    setLocation(true);
+  };
+
   return (
     <>
-      <Location />
-      <Categories />
+      {!location && <Location onLocationUpdate={handleLocationUpdate} />}
+      {location && (
+        <>
+          <p>
+            Latitude: {latitude}, Longitude: {longitude}
+          </p>
+          <Categories />
+        </>
+      )}
     </>
   );
 }

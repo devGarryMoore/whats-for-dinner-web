@@ -3,7 +3,7 @@ import Image from "next/image";
 import map from "@/assets/map.png";
 import { useState } from "react";
 
-export default function Location() {
+export default function Location(props) {
   const heading = "What's For Dinner";
 
   //saving the location in state
@@ -23,6 +23,7 @@ export default function Location() {
   const showPosition = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
+    props.onLocationUpdate(position.coords.latitude, position.coords.longitude);
   };
 
   // Error callback
@@ -52,8 +53,6 @@ export default function Location() {
           Use Current Location &nbsp;
           <Image src={map} width={24} alt="map icon" />
         </button>
-        <p>Latitude is: {latitude}</p>
-        <p>Longitude is: {longitude}</p>
       </div>
     </div>
   );
