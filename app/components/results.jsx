@@ -1,5 +1,9 @@
 export default function Results() {
   return (
+    //TODO
+    //Last step is to make api call to fetch the data and display it here.
+    //Try again button should take you back to the location component
+    //Directions button should take the address and open it in google maps
     <>
       <h1 className="heading">Results</h1>
       <div className="container">
