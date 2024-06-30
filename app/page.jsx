@@ -8,6 +8,8 @@ export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [location, setLocation] = useState(false);
+  //In the process of saving the category in state
+  const [category, setCategory] = useState(null);
 
   const handleLocationUpdate = (latitude, longitude) => {
     setLatitude(latitude);
