@@ -3,6 +3,7 @@
 import Categories from "./components/categories";
 import Location from "./components/location";
 import React, { useState } from "react";
+import Results from "./components/results";
 
 export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
@@ -17,21 +18,32 @@ export default function HomePage() {
     setLocation(true);
   };
 
+  const handleCategoryUpdate = (category) => {
+    setCategory(category);
+  };
+
   return (
     <>
       {!location && <Location onLocationUpdate={handleLocationUpdate} />}
-      {location && (
+      {location && !category && (
         <>
           <p>
             Latitude: {latitude}, Longitude: {longitude}
           </p>
-          <Categories />
+          <Categories onCategoryUpdate={handleCategoryUpdate} />
         </>
+      )}
+      <p>
+        Latitude: {latitude}, Longitude: {longitude}
+      </p>
+      <p>Category Code: {category}</p>
+      {category && (
+        <Results
+          latitude={latitude}
+          longitude={longitude}
+          category={category}
+        />
       )}
     </>
   );
 }
-
-//Todo
-//Have the categories component be hidden until the user gets their location
-//Hide the lcation component after the user gets their location

@@ -9,12 +9,12 @@ import korean from "@/assets/korean.png";
 import random from "@/assets/random.png";
 import React, { useState } from "react";
 
-export default function Categories() {
+export default function Categories({ onCategoryUpdate }) {
   const [categoryCode, setCategoryCode] = useState("");
 
   const handleCategoryClick = (code) => {
     setCategoryCode(code);
-    alert("Category code: " + code);
+    onCategoryUpdate(code);
     //TODO
     //Later we will use this code to fetch the data from the API and display the results
   };
