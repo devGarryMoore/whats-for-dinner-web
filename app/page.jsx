@@ -16,20 +16,10 @@ export default function HomePage() {
   useEffect(() => {
     if (latitude && longitude && category) {
       fetchDinnerPlaces(latitude, longitude, category).then((data) =>
-        setDinnerPlaces(data)
+        setDinnerPlaces(data.results)
       );
     }
   }, [latitude, longitude, category]);
-
-  // const destructuredDinnerPlaces = useMemo(
-  //   () =>
-  //     dinnerPlaces.map(({ name, tel, website }) => ({
-  //       name,
-  //       tel,
-  //       website,
-  //     })),
-  //   [dinnerPlaces]
-  // );
 
   const handleLocationUpdate = (latitude, longitude) => {
     setLatitude(latitude);
@@ -53,7 +43,18 @@ export default function HomePage() {
           <Categories onCategoryUpdate={handleCategoryUpdate} />
         </>
       )}
-      {category && <Results dinnerPlaces={dinnerPlaces} />}
+      {/* {category && <Results dinnerPlaces={dinnerPlaces} />} */}
     </>
   );
 }
+
+//Code that is broken at the moment but might be needed later.
+// const destructuredDinnerPlaces = useMemo(
+//   () =>
+//     dinnerPlaces.map(({ name, tel, website }) => ({
+//       name,
+//       tel,
+//       website,
+//     })),
+//   [dinnerPlaces]
+// );

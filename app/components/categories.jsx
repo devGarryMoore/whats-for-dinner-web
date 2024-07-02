@@ -15,8 +15,6 @@ export default function Categories({ onCategoryUpdate }) {
   const handleCategoryClick = (code) => {
     setCategoryCode(code);
     onCategoryUpdate(code);
-    //TODO
-    //Later we will use this code to fetch the data from the API and display the results
   };
 
   return (
