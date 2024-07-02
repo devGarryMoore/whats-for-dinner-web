@@ -2,20 +2,39 @@
 
 import Categories from "./components/categories";
 import Location from "./components/location";
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Results from "./components/results";
+import { fetchDinnerPlaces } from "@/lib/dinner-places";
 
 export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [location, setLocation] = useState(false);
-  //In the process of saving the category in state
   const [category, setCategory] = useState(null);
+  const [dinnerPlaces, setDinnerPlaces] = useState([]);
+
+  useEffect(() => {
+    if (latitude && longitude && category) {
+      fetchDinnerPlaces(latitude, longitude, category).then((data) =>
+        setDinnerPlaces(data)
+      );
+    }
+  }, [latitude, longitude, category]);
+
+  // const destructuredDinnerPlaces = useMemo(
+  //   () =>
+  //     dinnerPlaces.map(({ name, tel, website }) => ({
+  //       name,
+  //       tel,
+  //       website,
+  //     })),
+  //   [dinnerPlaces]
+  // );
 
   const handleLocationUpdate = (latitude, longitude) => {
     setLatitude(latitude);
     setLongitude(longitude);
-    setLocation(true);
+    setLocation({ latitude, longitude });
   };
 
   const handleCategoryUpdate = (category) => {
@@ -24,26 +43,17 @@ export default function HomePage() {
 
   return (
     <>
+      <p>
+        Latitude: {latitude} Longitude: {longitude}
+      </p>
+      <p>Category Code: {category}</p>
       {!location && <Location onLocationUpdate={handleLocationUpdate} />}
       {location && !category && (
         <>
-          <p>
-            Latitude: {latitude}, Longitude: {longitude}
-          </p>
           <Categories onCategoryUpdate={handleCategoryUpdate} />
         </>
       )}
-      <p>
-        Latitude: {latitude}, Longitude: {longitude}
-      </p>
-      <p>Category Code: {category}</p>
-      {category && (
-        <Results
-          latitude={latitude}
-          longitude={longitude}
-          category={category}
-        />
-      )}
+      {category && <Results dinnerPlaces={dinnerPlaces} />}
     </>
   );
 }
