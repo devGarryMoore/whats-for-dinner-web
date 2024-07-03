@@ -16,7 +16,7 @@ export default function HomePage() {
   useEffect(() => {
     if (latitude && longitude && category) {
       fetchDinnerPlaces(latitude, longitude, category).then((data) =>
-        setDinnerPlaces(data.results)
+        setDinnerPlaces(data)
       );
     }
   }, [latitude, longitude, category]);
@@ -44,6 +44,19 @@ export default function HomePage() {
         </>
       )}
       {/* {category && <Results dinnerPlaces={dinnerPlaces} />} */}
+      {category && (
+        <div>
+          {dinnerPlaces.length > 0 ? (
+            dinnerPlaces.map((place, index) => (
+              <div key={index}>
+                <p>{place.name}</p>
+              </div>
+            ))
+          ) : (
+            <p>No results found</p>
+          )}
+        </div>
+      )}
     </>
   );
 }
