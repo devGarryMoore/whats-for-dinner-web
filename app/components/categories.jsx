@@ -49,7 +49,7 @@ export default function Categories({ onCategoryUpdate }) {
           <Image src={korean} width={100} alt="korean" />
           <h2>Korean</h2>
         </div>
-        <div className="cards" onClick={() => handleCategoryClick("")}>
+        <div className="cards" onClick={() => handleCategoryClick("13134")}>
           <Image src={random} width={100} alt="random" />
           <h2>Random</h2>
         </div>
