@@ -5,6 +5,7 @@ import Location from "./components/location";
 import React, { useState, useEffect, useMemo } from "react";
 import Results from "./components/results";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
+// import Image from "next/image";
 
 export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
@@ -45,13 +46,36 @@ export default function HomePage() {
       )}
       {/* {category && <Results dinnerPlaces={dinnerPlaces} />} */}
       {category && (
-        <div>
+        <div className="container">
           {dinnerPlaces.length > 0 ? (
-            dinnerPlaces.map((place, index) => (
-              <div key={index}>
-                <p>{place.name}</p>
-              </div>
-            ))
+            dinnerPlaces.map((place, index) => {
+              const pref = place.photos[0]?.prefix;
+              const suff = place.photos[0]?.suffix;
+              const imgURL = `${pref}200x200${suff}`;
+              return (
+                <div key={index} className="search-box">
+                  <div className="details">
+                    <p>{place.name}</p>
+                    <img src={imgURL} alt={place.name} />
+                    <div>
+                      <ul>
+                        <li>{place.photos[0]?.prefix}</li>
+                        <li>{place.location.formatted_address}</li>
+                        <li>{place.hours.display}</li>
+                        <li>{place.tel}</li>
+                        <li>{place.website}</li>
+                        <li>{place.rating}</li>
+                        <li>{place.price}</li>
+                      </ul>
+                      <div>
+                        <button className="btn">Try Again</button>
+                        <button className="btn">Directions</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
           ) : (
             <p>No results found</p>
           )}
