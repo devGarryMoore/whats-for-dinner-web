@@ -13,12 +13,15 @@ export default function HomePage() {
   const [location, setLocation] = useState(false);
   const [category, setCategory] = useState(null);
   const [dinnerPlaces, setDinnerPlaces] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [viewedAll, setViewedAll] = useState(false);
 
   useEffect(() => {
     if (latitude && longitude && category) {
-      fetchDinnerPlaces(latitude, longitude, category).then((data) =>
-        setDinnerPlaces(data)
-      );
+      fetchDinnerPlaces(latitude, longitude, category).then((data) => {
+        setDinnerPlaces(data);
+        setViewedAll(false);
+      });
     }
   }, [latitude, longitude, category]);
 
@@ -30,6 +33,16 @@ export default function HomePage() {
 
   const handleCategoryUpdate = (category) => {
     setCategory(category);
+  };
+
+  const handleTryAgain = () => {
+    setIndex((prevIndex) => {
+      const nextIndex = (prevIndex + 1) % dinnerPlaces.length;
+      if (nextIndex === 0) {
+        setViewedAll(true);
+      }
+      return nextIndex;
+    });
   };
 
   return (
@@ -47,35 +60,36 @@ export default function HomePage() {
       {/* {category && <Results dinnerPlaces={dinnerPlaces} />} */}
       {category && (
         <div className="container">
-          {dinnerPlaces.length > 0 ? (
-            dinnerPlaces.map((place, index) => {
+          {dinnerPlaces.length > 0 && !viewedAll ? (
+            (() => {
+              const place = dinnerPlaces[index];
               const pref = place.photos[0]?.prefix;
               const suff = place.photos[0]?.suffix;
               const imgURL = `${pref}200x200${suff}`;
               return (
-                <div key={index} className="search-box">
+                <div className="search-box">
                   <div className="details">
                     <p>{place.name}</p>
                     <img src={imgURL} alt={place.name} />
+                    <ul>
+                      <li>{place.photos[0]?.prefix}</li>
+                      <li>{place.location.formatted_address}</li>
+                      <li>{place.hours.display}</li>
+                      <li>{place.tel}</li>
+                      <li>{place.website}</li>
+                      <li>{place.rating}</li>
+                      <li>{place.price}</li>
+                    </ul>
                     <div>
-                      <ul>
-                        <li>{place.photos[0]?.prefix}</li>
-                        <li>{place.location.formatted_address}</li>
-                        <li>{place.hours.display}</li>
-                        <li>{place.tel}</li>
-                        <li>{place.website}</li>
-                        <li>{place.rating}</li>
-                        <li>{place.price}</li>
-                      </ul>
-                      <div>
-                        <button className="btn">Try Again</button>
-                        <button className="btn">Directions</button>
-                      </div>
+                      <button className="btn" onClick={handleTryAgain}>
+                        Try Again
+                      </button>
+                      <button className="btn">Directions</button>
                     </div>
                   </div>
                 </div>
               );
-            })
+            })()
           ) : (
             <p>No results found</p>
           )}
@@ -84,14 +98,3 @@ export default function HomePage() {
     </>
   );
 }
-
-//Code that is broken at the moment but might be needed later.
-// const destructuredDinnerPlaces = useMemo(
-//   () =>
-//     dinnerPlaces.map(({ name, tel, website }) => ({
-//       name,
-//       tel,
-//       website,
-//     })),
-//   [dinnerPlaces]
-// );
