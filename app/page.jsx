@@ -1,7 +1,7 @@
 "use client";
 
 import Categories from "./components/categories";
-import Location from "./components/location";
+import Location from "./components/Location";
 import React, { useState, useEffect, useMemo } from "react";
 import Results from "./components/results";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
@@ -98,3 +98,11 @@ export default function HomePage() {
     </>
   );
 }
+
+//TODO
+// 1. Create a component to log user out when no more results are available
+// 2. Create a function to open the address in google maps
+// 3. Log user out button?
+// 4. Make the API call server side --> Use node-fetch. Replace fetchdinnerplaces with what's returned from the server.
+// 5. Clean up application
+// 6. Deploy application.
