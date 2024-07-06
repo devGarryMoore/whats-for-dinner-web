@@ -2,8 +2,7 @@
 
 import Categories from "./components/categories";
 import Location from "./components/Location";
-import React, { useState, useEffect, useMemo } from "react";
-import Results from "./components/results";
+import React, { useState, useEffect } from "react";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
 // import Image from "next/image";
 
@@ -57,7 +56,6 @@ export default function HomePage() {
           <Categories onCategoryUpdate={handleCategoryUpdate} />
         </>
       )}
-      {/* {category && <Results dinnerPlaces={dinnerPlaces} />} */}
       {category && (
         <div className="container">
           {dinnerPlaces.length > 0 && !viewedAll ? (
