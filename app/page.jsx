@@ -4,7 +4,7 @@ import Categories from "./components/categories";
 import Location from "./components/Location";
 import React, { useState, useEffect } from "react";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
-// import Image from "next/image";
+import End from "./components/end";
 
 export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
@@ -89,7 +89,7 @@ export default function HomePage() {
               );
             })()
           ) : (
-            <p>No results found</p>
+            <End />
           )}
         </div>
       )}
@@ -98,9 +98,7 @@ export default function HomePage() {
 }
 
 //TODO
-// 1. Create a component to log user out when no more results are available
 // 2. Create a function to open the address in google maps
-// 3. Log user out button?
 // 4. Make the API call server side --> Use node-fetch. Replace fetchdinnerplaces with what's returned from the server.
 // 5. Clean up application
 // 6. Deploy application.

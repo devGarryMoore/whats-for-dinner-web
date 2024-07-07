@@ -98,6 +98,11 @@ p {
   padding-left: 8px;
 }
 
+.logoutBtn {
+  display: flex;
+  justify-content: center;
+}
+
 .slink {
   padding: 10px 10px;
 }
