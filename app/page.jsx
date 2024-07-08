@@ -4,6 +4,7 @@ import Categories from "./components/categories";
 import Location from "./components/Location";
 import React, { useState, useEffect } from "react";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
+import Results from "./components/results";
 import End from "./components/end";
 
 export default function HomePage() {
@@ -59,35 +60,10 @@ export default function HomePage() {
       {category && (
         <div className="container">
           {dinnerPlaces.length > 0 && !viewedAll ? (
-            (() => {
-              const place = dinnerPlaces[index];
-              const pref = place.photos[0]?.prefix;
-              const suff = place.photos[0]?.suffix;
-              const imgURL = `${pref}200x200${suff}`;
-              return (
-                <div className="search-box">
-                  <div className="details">
-                    <p>{place.name}</p>
-                    <img src={imgURL} alt={place.name} />
-                    <ul>
-                      <li>{place.photos[0]?.prefix}</li>
-                      <li>{place.location.formatted_address}</li>
-                      <li>{place.hours.display}</li>
-                      <li>{place.tel}</li>
-                      <li>{place.website}</li>
-                      <li>{place.rating}</li>
-                      <li>{place.price}</li>
-                    </ul>
-                    <div>
-                      <button className="btn" onClick={handleTryAgain}>
-                        Try Again
-                      </button>
-                      <button className="btn">Directions</button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })()
+            <Results
+              place={dinnerPlaces[index]}
+              handleTryAgain={handleTryAgain}
+            />
           ) : (
             <End />
           )}
@@ -98,6 +74,10 @@ export default function HomePage() {
 }
 
 //TODO
+// The Use effect is client component most likely so we will need a new way to get data on page.
+// Make API Call server side in the route.js file.
+// Render server side api data in the results component.
+
 // 2. Create a function to open the address in google maps
 // 4. Make the API call server side --> Use node-fetch. Replace fetchdinnerplaces with what's returned from the server.
 // 5. Clean up application
