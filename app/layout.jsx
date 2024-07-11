@@ -7,7 +7,7 @@ import {
 } from "@clerk/nextjs";
 import "./globals.css";
 import Image from "next/image";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/Logo.png";
 import { neobrutalism } from "@clerk/themes";
 
 //the icon is pretty shitty. Maybe we can find a way to fix it later

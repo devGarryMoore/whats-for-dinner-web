@@ -1,7 +1,7 @@
 "use client";
 
 import Categories from "./components/categories";
-import Location from "./components/Location";
+import Location from "./components/location";
 import React, { useState, useEffect } from "react";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
 import Results from "./components/results";
