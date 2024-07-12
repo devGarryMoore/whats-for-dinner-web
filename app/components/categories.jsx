@@ -17,42 +17,27 @@ export default function Categories( { onCategoryUpdate } ) {
     onCategoryUpdate(code);
   };
 
+  const categoryCards = [
+    { name: "Burgers", className: "cards", code: "13031", src: hamburger, width: 100, alt:"hamburger" },
+    { name: "Chicken", className: "cards", code: "13055", src: chicken, width: 100, alt:"chicken" },
+    { name: "Pizza", className: "cards", code: "13064", src: pizza, width: 100, alt:"pizza" },
+    { name: "Chinese", className: "cards", code: "13099", src: chinese, width: 100, alt:"chinese" },
+    { name: "Pubs", className: "cards", code: "13018", src: pub, width: 100, alt:"pubs" },
+    { name: "Sushi", className: "cards", code: "13276", src: sushi, width: 100, alt:"sushi" },
+    { name: "Korean", className: "cards", code: "13289", src: korean, width: 100, alt:"korean" },
+    { name: "Random", className: "cards", code: "13134", src: random, width: 100, alt:"random" }
+  ]
+
   return (
     <div>
       <h1 className="heading">Pick a category</h1>
       <section className="container">
-        <div className="cards" onClick={() => handleCategoryClick("13031")}>
-          <Image src={hamburger} width={100} alt="hamburger" />
-          <h2>Burgers</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13055")}>
-          <Image src={chicken} width={100} alt="chicken" />
-          <h2>Chicken</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13064")}>
-          <Image src={pizza} width={100} alt="pizza" />
-          <h2>Pizza</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13099")}>
-          <Image src={chinese} width={100} alt="chinese" />
-          <h2>Chinese</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13018")}>
-          <Image src={pub} width={100} alt="pubs" />
-          <h2>Pubs</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13276")}>
-          <Image src={sushi} width={100} alt="sushi" />
-          <h2>Sushi</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13289")}>
-          <Image src={korean} width={100} alt="korean" />
-          <h2>Korean</h2>
-        </div>
-        <div className="cards" onClick={() => handleCategoryClick("13134")}>
-          <Image src={random} width={100} alt="random" />
-          <h2>Random</h2>
-        </div>
+        {categoryCards.map( (option) =>
+          <div className={ option.className } onClick={() => handleCategoryClick( option.code )}>
+            <Image src={ option.src } width={ option.width } alt={ option.alt } />
+            <h2>{ option.name }</h2>
+          </div>
+        )}
       </section>
     </div>
   );
