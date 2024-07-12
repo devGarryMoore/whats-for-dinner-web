@@ -9,7 +9,7 @@ import korean from "@/assets/korean.png";
 import random from "@/assets/random.png";
 import React, { useState } from "react";
 
-export default function Categories({ onCategoryUpdate }) {
+export default function Categories( { onCategoryUpdate } ) {
   const [categoryCode, setCategoryCode] = useState("");
 
   const handleCategoryClick = (code) => {
