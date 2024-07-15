@@ -47,10 +47,6 @@ export default function HomePage() {
 
   return (
     <>
-      <p>
-        Latitude: {latitude} Longitude: {longitude}
-      </p>
-      <p>Category Code: {category}</p>
       {!location && <Location onLocationUpdate={handleLocationUpdate} />}
       {location && !category && (
         <>
