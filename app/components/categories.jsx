@@ -17,6 +17,8 @@ export default function Categories({ onCategoryUpdate }) {
     onCategoryUpdate(code);
   };
 
+  //Garry fixed Git
+
   const categoryCards = [
     {
       name: "Burgers",
