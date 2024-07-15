@@ -31,9 +31,9 @@ export default function Categories( { onCategoryUpdate } ) {
   return (
     <div>
       <h1 className="heading">Pick a category</h1>
-      <section className="container">
+      <section className="categoryContainer">
         {categoryCards.map( (option) =>
-          <div className={ option.className } onClick={() => handleCategoryClick( option.code )}>
+          <div key={ option.name } className={ option.className } onClick={() => handleCategoryClick( option.code )}>
             <Image src={ option.src } width={ option.width } alt={ option.alt } />
             <h2>{ option.name }</h2>
           </div>
