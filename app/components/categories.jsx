@@ -87,7 +87,6 @@ export default function Categories({ onCategoryUpdate }) {
   return (
     <div>
       <h1 className="heading">Pick a category</h1>
-<<<<<<< HEAD
       <section className="container">
         {categoryCards.map((option) => (
           <div
@@ -97,13 +96,6 @@ export default function Categories({ onCategoryUpdate }) {
           >
             <Image src={option.src} width={option.width} alt={option.alt} />
             <h2>{option.name}</h2>
-=======
-      <section className="categoryContainer">
-        {categoryCards.map( (option) =>
-          <div key={ option.name } className={ option.className } onClick={() => handleCategoryClick( option.code )}>
-            <Image src={ option.src } width={ option.width } alt={ option.alt } />
-            <h2>{ option.name }</h2>
->>>>>>> devGarryMoore/main
           </div>
         ))}
       </section>
