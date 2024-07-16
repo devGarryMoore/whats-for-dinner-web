@@ -70,11 +70,5 @@ export default function HomePage() {
 }
 
 //TODO
-// The Use effect is client component most likely so we will need a new way to get data on page.
-// Make API Call server side in the route.js file.
-// Render server side api data in the results component.
-
-// 2. Create a function to open the address in google maps
-// 4. Make the API call server side --> Use node-fetch. Replace fetchdinnerplaces with what's returned from the server.
-// 5. Clean up application
-// 6. Deploy application.
+// 1. Clean up application
+// 2. Deploy application.

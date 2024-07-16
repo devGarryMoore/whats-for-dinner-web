@@ -18,6 +18,7 @@ export default function Results({ place, handleTryAgain }) {
       <div className="top">
         <div className="marquee">
           <p>{place.name}</p>
+          {/* <Image src={imgURL} width={200} height={200} alt={place.name} /> */}
           <img className="rimg" src={imgURL} alt={place.name} />
         </div>
         <div className="details">
