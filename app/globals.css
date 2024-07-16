@@ -25,6 +25,11 @@ p {
   padding: 10px;
 }
 
+li {
+  list-style: none;
+  padding-bottom: 2%;
+}
+
 .btn{
   background-color: #89cff0;
   border: 1px solid black;
@@ -93,15 +98,6 @@ p {
   margin-right: -50px;
 }
 
-.details{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.details>div{
-  margin-left: 20px;
-}
-
 .heading{
   display: flex;
   justify-content: center;
@@ -145,6 +141,59 @@ p {
   padding: 10px;
 }
 
+/* Results */
+.results-box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px 0px black;
+  border-radius: 10px;
+  padding: 50px;
+  font-size: 1.25em;
+}
+.results-box img {
+  max-width: 100%;
+  height: auto;
+}
+.top{
+  display: flex;
+  flex-direction: row;
+}
+.marquee {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5%;
+  width: 50%;
+}
+.details {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-top: 5%;
+  justify-content: flex-end;
+  width: 50%;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.rimg{
+  width: 200px;
+}
+
+.resultSpan{
+  padding: 5%;
+}
+
+
 /* Cards Styling */
 
 /* .card-row{
@@ -168,6 +217,7 @@ p {
 .cl-headerTitle{
   font-size: 2em;
 }
+
 
 /* TODO */
 /* Fix the size of the logo image */
