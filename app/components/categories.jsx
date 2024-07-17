@@ -87,7 +87,7 @@ export default function Categories({ onCategoryUpdate }) {
   return (
     <div>
       <h1 className="heading">Pick a category</h1>
-      <section className="container">
+      <section className="categoryContainer">
         {categoryCards.map((option) => (
           <div
             key={option.name}

@@ -101,7 +101,6 @@ li {
 .heading{
   display: flex;
   justify-content: center;
-  /* margin-top: 5%;  */
 }
 
 .loc-link a{
@@ -147,7 +146,6 @@ li {
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
-  padding: 20px;
   box-sizing: border-box;
   background-color: #fff;
   border: 2px solid black;
@@ -195,11 +193,6 @@ li {
 
 
 /* Cards Styling */
-
-/* .card-row{
-
-} */
-
 .cards{
   text-align: center;
   background-color: #fff;
@@ -218,8 +211,96 @@ li {
   font-size: 2em;
 }
 
+@media only screen and (min-device-width: 0px) 
+                   and (max-device-width: 640px) 
+                   and (orientation: portrait) {
+  h1 {
+    font-size: 2rem;
+  }
 
-/* TODO */
-/* Fix the size of the logo image */
-/* #logo
-} */
+  p {
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    min-width: 250px;
+  }
+
+  .categoryContainer {
+    grid-template-columns: repeat(2, 140px);
+    grid-gap: 2rem;
+    margin-top: 2px;
+  }
+
+
+  .categoryContainer > div:nth-child(n+5) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  .categoryContainer > div:nth-child(even) {
+    margin-top: 50px;
+    margin-bottom: -50px;
+  }
+
+  .container {
+    margin:8%;
+  }
+
+  .details {
+    width: 100%;
+  }
+
+  #logo {
+    width: 600px;
+  }
+
+  .marquee {
+    width: 100%;
+  }
+
+  .results-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .search-box {
+    padding: 5px;
+  }
+
+  .top {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-device-width: 0px) 
+                   and (max-device-width: 1000px) 
+                   and (orientation: landscape) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .categoryContainer {
+    grid-template-columns: repeat(4, 140px);
+    grid-gap: 2rem;
+    margin-top: 2px;
+    }
+
+  .categoryContainer > div:nth-child(n+5) {
+    margin-left: 50px;
+    margin-right: -50px;
+  }
+    
+  .categoryContainer > div:nth-child(even) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .container {
+    margin-top: 2%;
+  }
+}

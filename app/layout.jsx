@@ -10,8 +10,6 @@ import Image from "next/image";
 import logo from "@/assets/Logo.png";
 import { neobrutalism } from "@clerk/themes";
 
-//the icon is pretty shitty. Maybe we can find a way to fix it later
-
 export const metadata = {
   title: "What's For Dinner App",
   description:
@@ -31,7 +29,6 @@ export default function RootLayout({ children }) {
             <div className="container">
               <SignIn routing="hash" id="auth-card" />
               <section id="logo">
-                {/* Fix the size of the logo image */}
                 <Image src={logo} width={700} alt="logo" id="logo" />
               </section>
             </div>
