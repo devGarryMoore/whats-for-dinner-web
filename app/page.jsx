@@ -68,8 +68,3 @@ export default function HomePage() {
     </>
   );
 }
-
-//TODO
-// 1. Create attribute page for images used from other sources.
-// 2. Clean up application
-// 3. Deploy application.

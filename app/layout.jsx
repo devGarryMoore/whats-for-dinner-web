@@ -7,6 +7,7 @@ import {
 } from "@clerk/nextjs";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/assets/Logo.png";
 import { neobrutalism } from "@clerk/themes";
 
@@ -34,7 +35,11 @@ export default function RootLayout({ children }) {
             </div>
           </SignedOut>
           <SignedIn>
-            <UserButton showName />
+            <div className="topBar">
+              <UserButton showName />
+              <Link href="/attribution">Attribution</Link>
+            </div>
+
             {children}
           </SignedIn>
         </body>

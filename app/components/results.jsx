@@ -5,21 +5,31 @@ import thumbUp3 from "@/assets/thumbUp3.png";
 import cheap from "@/assets/cheap.png";
 import moderate from "@/assets/moderate.png";
 import expensive from "@/assets/expensive.png";
+import placeholder from "@/assets/placeholder.png";
 import veryExpensive from "@/assets/veryExpensive.png";
 import Image from "next/image";
 
 export default function Results({ place, handleTryAgain }) {
   const pref = place.photos[0]?.prefix;
   const suff = place.photos[0]?.suffix;
-  const imgURL = `${pref}200x200${suff}`;
+  const imgURL = pref && suff ? `${pref}200x200${suff}` : null;
 
   return (
     <div className="results-box">
       <div className="top">
         <div className="marquee">
           <p>{place.name}</p>
-          {/* <Image src={imgURL} width={200} height={200} alt={place.name} /> */}
-          <img className="rimg" src={imgURL} alt={place.name} />
+          {imgURL ? (
+            //For some reason I get an error when using the Image component here (uhandled runtime error)
+            <img className="rimg" src={imgURL} alt={place.name} />
+          ) : (
+            <Image
+              src={placeholder}
+              width={200}
+              height={200}
+              alt={place.name}
+            />
+          )}
         </div>
         <div className="details">
           <ul>
