@@ -77,7 +77,7 @@ export default function Categories({ onCategoryUpdate }) {
     {
       name: "Random",
       className: "cards",
-      code: "13134",
+      code: "13000",
       src: random,
       width: 100,
       alt: "random",
