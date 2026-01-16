@@ -7,10 +7,9 @@ import {
 } from "@clerk/nextjs";
 import "./globals.css";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/assets/Logo.png";
 import { neobrutalism } from "@clerk/themes";
-
-//the icon is pretty shitty. Maybe we can find a way to fix it later
 
 export const metadata = {
   title: "What's For Dinner App",
@@ -25,19 +24,22 @@ export default function RootLayout({ children }) {
         baseTheme: [neobrutalism],
       }}
     >
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning={true}>
         <body>
           <SignedOut>
             <div className="container">
-              <SignIn routing="hash" id="auth-card" />
+              <SignIn routing="hash" id="auth-card" fallbackRedirectUrl="/" />
               <section id="logo">
-                {/* Fix the size of the logo image */}
                 <Image src={logo} width={700} alt="logo" id="logo" />
               </section>
             </div>
           </SignedOut>
           <SignedIn>
-            <UserButton showName />
+            <div className="topBar">
+              <UserButton showName />
+              <Link href="/attribution">Attribution</Link>
+            </div>
+
             {children}
           </SignedIn>
         </body>

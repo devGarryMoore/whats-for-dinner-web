@@ -1,6 +1,7 @@
 "use client";
 
 import Categories from "./components/categories";
+import Loading from "./loading";
 import Location from "./components/location";
 import React, { useState, useEffect } from "react";
 import { fetchDinnerPlaces } from "@/lib/dinner-places";
@@ -10,17 +11,19 @@ import End from "./components/end";
 export default function HomePage() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  const [location, setLocation] = useState(false);
   const [category, setCategory] = useState(null);
   const [dinnerPlaces, setDinnerPlaces] = useState([]);
   const [index, setIndex] = useState(0);
   const [viewedAll, setViewedAll] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (latitude && longitude && category) {
+      setIsLoading(true);
       fetchDinnerPlaces(latitude, longitude, category).then((data) => {
         setDinnerPlaces(data);
         setViewedAll(false);
+        setIsLoading(false);
       });
     }
   }, [latitude, longitude, category]);
@@ -28,7 +31,6 @@ export default function HomePage() {
   const handleLocationUpdate = (latitude, longitude) => {
     setLatitude(latitude);
     setLongitude(longitude);
-    setLocation({ latitude, longitude });
   };
 
   const handleCategoryUpdate = (category) => {
@@ -36,28 +38,24 @@ export default function HomePage() {
   };
 
   const handleTryAgain = () => {
-    setIndex((prevIndex) => {
-      const nextIndex = (prevIndex + 1) % dinnerPlaces.length;
-      if (nextIndex === 0) {
-        setViewedAll(true);
-      }
-      return nextIndex;
-    });
+    if (index < dinnerPlaces.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setViewedAll(true);
+    }
   };
 
   return (
     <>
-      <p>
-        Latitude: {latitude} Longitude: {longitude}
-      </p>
-      <p>Category Code: {category}</p>
-      {!location && <Location onLocationUpdate={handleLocationUpdate} />}
-      {location && !category && (
+      {!latitude && <Location onLocationUpdate={handleLocationUpdate} />}
+      {latitude && !category && (
         <>
           <Categories onCategoryUpdate={handleCategoryUpdate} />
         </>
       )}
-      {category && (
+      {isLoading ? (
+        <Loading />
+      ) : category && (
         <div className="container">
           {dinnerPlaces.length > 0 && !viewedAll ? (
             <Results
@@ -72,13 +70,3 @@ export default function HomePage() {
     </>
   );
 }
-
-//TODO
-// The Use effect is client component most likely so we will need a new way to get data on page.
-// Make API Call server side in the route.js file.
-// Render server side api data in the results component.
-
-// 2. Create a function to open the address in google maps
-// 4. Make the API call server side --> Use node-fetch. Replace fetchdinnerplaces with what's returned from the server.
-// 5. Clean up application
-// 6. Deploy application.
